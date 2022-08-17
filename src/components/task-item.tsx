@@ -65,9 +65,8 @@ const TaskItem = ({
             px={1}
             py={0}
             autoFocus
-            blurOnSubmit
             onChangeText={onChangeSubject}
-            onBlur={onFinishEditing}
+            onEndEditing={onFinishEditing}
           />
         ) : (
           <AnimatedTaskLabel

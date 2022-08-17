@@ -18,7 +18,7 @@ interface TaskListProps {
   editingItemId: string | null;
   onToggleItem: (item: TaskItemData) => void;
   onChangeSubject: (item: TaskItemData, newSubject: string) => void;
-  onFinishEditing: (item: TaskItemData) => void;
+  onFinishEditing: () => void;
   onPressLabel: (item: TaskItemData) => void;
   onRemoveItem: (item: TaskItemData) => void;
 }
@@ -28,7 +28,7 @@ interface TaskItemProps extends Pick<PanGestureHandlerProps, 'simultaneousHandle
   isEditing: boolean;
   onToggleItem: (item: TaskItemData) => void;
   onChangeSubject: (item: TaskItemData, newSubject: string) => void;
-  onFinishEditing: (item: TaskItemData) => void;
+  onFinishEditing: () => void;
   onPressLabel: (item: TaskItemData) => void;
   onRemove: (item: TaskItemData) => void;
 }
@@ -43,24 +43,26 @@ export const AnimatedTaskItem = ({
   onPressLabel,
   onRemove,
 }: TaskItemProps) => {
-  const handleToggleCheckbox = useCallback(() => {
+  const handleToggleCheckbox = () => {
     onToggleItem(data);
-  }, [data, onToggleItem]);
-  const handleChangeSubject = useCallback(
-    (subject) => {
-      onChangeSubject(data, subject);
-    },
-    [data, onChangeSubject]
-  );
-  const handleFinishEditing = useCallback(() => {
-    onFinishEditing(data);
-  }, [data, onFinishEditing]);
+  };
+
+  const handleChangeSubject = (subject: string) => {
+    onChangeSubject(data, subject);
+  };
+
+  const handleFinishEditing = () => {
+    onFinishEditing();
+  };
+
   const handlePressLabel = useCallback(() => {
     onPressLabel(data);
-  }, [data, onPressLabel]);
-  const handleRemove = useCallback(() => {
+  }, []);
+
+  const handleRemove = () => {
     onRemove(data);
-  }, [data, onRemove]);
+  };
+
   return (
     <StyledView
       w="full"
