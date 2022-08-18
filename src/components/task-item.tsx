@@ -1,4 +1,4 @@
-import { Box, HStack, Pressable, themeTools, useColorModeValue, useTheme, Icon, Input } from 'native-base';
+import { Box, HStack, Pressable, useColorModeValue, Icon, Input, useToken } from 'native-base';
 import React from 'react';
 import AnimatedCheckbox from 'react-native-checkbox-reanimated';
 import { Feather } from '@expo/vector-icons';
@@ -28,12 +28,11 @@ const TaskItem = ({
   isEditing,
   onFinishEditing,
 }: TaskItemProps) => {
-  const theme = useTheme();
-  const highlightColor = themeTools.getColor(theme, useColorModeValue('blue.500', 'blue.400'));
-  const boxStroke = themeTools.getColor(theme, useColorModeValue('muted.300', 'muted.500'));
-  const checkmarkColor = themeTools.getColor(theme, useColorModeValue('white', 'white'));
-  const activeTextColor = themeTools.getColor(theme, useColorModeValue('darkText', 'lightText'));
-  const doneTextColor = themeTools.getColor(theme, useColorModeValue('muted.400', 'muted.600'));
+  const highlightColor = useToken('colors', useColorModeValue('blue.500', 'blue.400'));
+  const boxStroke = useToken('colors', useColorModeValue('muted.300', 'muted.500'));
+  const checkmarkColor = useToken('colors', useColorModeValue('white', 'white'));
+  const activeTextColor = useToken('colors', useColorModeValue('darkText', 'lightText'));
+  const doneTextColor = useToken('colors', useColorModeValue('muted.400', 'muted.600'));
 
   return (
     <SwipableView

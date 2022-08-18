@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/no-use-before-define': ['error', { functions: true, classes: true, variables: false }],
     'react/style-prop-object': 'off',
-    'react/jsx-props-no-spreading': 'off', //cho phép truyền dưới dạng {...props}
+    'react/jsx-props-no-spreading': 'off', //cho phép truyền dưới dạng {...props},
+    'global-require': 'off', //cho phep truyen require trong url anh
   },
 };

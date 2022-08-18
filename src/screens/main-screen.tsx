@@ -1,9 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { Center, Fab, Icon, useColorModeValue, VStack } from 'native-base';
+import { Fab, Icon, useColorModeValue, VStack } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 import shortid from 'shortid';
+import AnimatedColorBox from '../components/animated-color-box';
 import ThemeToggle from '../components/theme-toggle';
 import TaskList, { TaskItemData } from '../components/task-list';
+import Masthead from '../components/masthead';
+import NavBar from '../components/navbar';
 
 const initialData = [
   {
@@ -64,7 +67,10 @@ export default function MainScreen() {
   // };
 
   return (
-    <Center _dark={{ bg: 'blueGray.900' }} _light={{ bg: 'blueGray.50' }} px={4} flex={1}>
+    <AnimatedColorBox bg={useColorModeValue('warmGray.50', 'primary.900')} flex={1} w="full">
+      <Masthead title="What's up, Takuya!" image={require('../assets/masthead.png')}>
+        <NavBar />
+      </Masthead>
       <VStack space={5} alignItems="center" w="full">
         <TaskList
           data={data}
@@ -95,6 +101,6 @@ export default function MainScreen() {
           setEditingItemId(id);
         }}
       />
-    </Center>
+    </AnimatedColorBox>
   );
 }

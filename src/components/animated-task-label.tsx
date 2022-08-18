@@ -23,7 +23,6 @@ const AnimatedHStack = Animated.createAnimatedComponent(HStack);
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
 const AnimatedTaskLabel = memo((props: Props) => {
-  console.log('bbb');
   const { strikethrough, textColor, inactiveTextColor, onPress, children } = props;
 
   const hstackOffset = useSharedValue(0);
