@@ -20,9 +20,12 @@ module.exports = {
     'react/require-default-props': 'off',
     'arrow-body-style': 'off',
     '@typescript-eslint/no-shadow': 'off',
+    // Viet stylesheet ở dưới cùng không bị báo lỗi phải viết trước khi sử dụng style
     '@typescript-eslint/no-use-before-define': ['error', { functions: true, classes: true, variables: false }],
     'react/style-prop-object': 'off',
-    'react/jsx-props-no-spreading': 'off', //cho phép truyền dưới dạng {...props},
+    //cho phép truyền dưới dạng {...props}
+    // 'react/jsx-props-no-spreading': 'off',
     'global-require': 'off', //cho phep truyen require trong url anh
+    'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
   },
 };

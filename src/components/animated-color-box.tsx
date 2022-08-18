@@ -20,6 +20,7 @@ const AnimatedColorBox = ({ bg, ...props }: any) => {
       backgroundColor: interpolateColor(progress.value, [0, 1], [prevHexBg || hexBg, hexBg]),
     };
   }, [hexBg]);
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return <AnimatedBox {...props} style={animatedStyles} />;
 };
 

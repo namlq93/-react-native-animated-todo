@@ -3,7 +3,6 @@ import { Fab, Icon, useColorModeValue, VStack } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 import shortid from 'shortid';
 import AnimatedColorBox from '../components/animated-color-box';
-import ThemeToggle from '../components/theme-toggle';
 import TaskList, { TaskItemData } from '../components/task-list';
 import Masthead from '../components/masthead';
 import NavBar from '../components/navbar';
@@ -71,7 +70,15 @@ export default function MainScreen() {
       <Masthead title="What's up, Takuya!" image={require('../assets/masthead.png')}>
         <NavBar />
       </Masthead>
-      <VStack space={5} alignItems="center" w="full">
+      <VStack
+        flex={1}
+        space={1}
+        bg={useColorModeValue('warmGray.50', 'primary.900')}
+        mt="-20px"
+        borderTopLeftRadius="20px"
+        borderTopRightRadius="20px"
+        pt="20px"
+      >
         <TaskList
           data={data}
           onToggleItem={handleToggleTaskItem}
@@ -81,11 +88,11 @@ export default function MainScreen() {
           onRemoveItem={handleRemoveItem}
           editingItemId={editingItemId}
         />
-        <ThemeToggle />
       </VStack>
       <Fab
         renderInPortal={false}
         icon={<Icon color="white" as={AntDesign} name="plus" />}
+        // màu background khi bấm vào button
         colorScheme={useColorModeValue('blue', 'darkBlue')}
         bg={useColorModeValue('blue.500', 'blue.400')}
         onPress={() => {
