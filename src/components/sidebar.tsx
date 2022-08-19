@@ -44,7 +44,7 @@ const Sidebar = ({ state, navigation }: DrawerContentComponentProps) => {
           borderWidth={3}
         />
         <Heading mb={4} size="xl">
-          Takuya Matsuyama
+          {`Nam \nLe Quy`}
         </Heading>
         <MenuButton active={currentRoute === 'Main'} onPress={handlePressMenuMain} icon="inbox">
           Tasks
